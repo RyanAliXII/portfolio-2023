@@ -12,11 +12,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
   React.useLayoutEffect(() => {
     const timeline = gsap.timeline();
-    timeline.fromTo(
-      taglineText.current,
-      { translateY: -300, opacity: 0 },
-      { translateY: 0, opacity: 1, duration: 0.3, ease: Power2.easeOut }
-    );
+
     timeline.fromTo(
       heroTextName.current,
       { translateY: -300, opacity: 0 },
@@ -24,15 +20,20 @@ const IndexPage: React.FC<PageProps> = () => {
     );
     timeline.fromTo(
       ctas.current,
-      { translateY: 300, opacity: 0 },
+      { translateY: -300, opacity: 0 },
       { translateY: 0, opacity: 1, duration: 0.4, ease: Power2.easeOut }
+    );
+    timeline.fromTo(
+      taglineText.current,
+      { translateX: -300, opacity: 0 },
+      { translateX: 0, opacity: 1, duration: 0.3, ease: Power2.easeOut }
     );
   }, []);
 
   return (
-    <main className="overflow-scroll h-screen snap-y snap-mandatory">
-      <header className="w-full  h-28 sticky top-0 bg-white z-10 ">
-        <div className="container h-full  mx-auto flex items-center justify-between p-10 gap-5 bg-white">
+    <main className="overflow-scroll h-screen snap-y snap-proximity lg:snap-mandatory scroll-smooth">
+      <header className="w-full  h-28 fixed top-0 bg-white z-10 ">
+        <div className="w-11/12 lg:w-10/12 h-full  mx-auto flex items-center justify-between p-10 gap-5 bg-white">
           <span className="font-bold text-2xl">RYAN ALI</span>
           <nav className="hidden lg:block">
             <ul className="flex gap-5">
@@ -61,14 +62,14 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
         </div>
       </header>
-      <section className="container mx-auto gap-3 p-10 flex flex-col h-screen justify-center lg:gap-5 snap-start ">
+      <section className="mx-auto gap-3 p-10 flex flex-col h-screen justify-center lg:gap-5 snap-start w-11/12 lg:w-7/12  ">
         <div className="text-3xl sm:text-5xl font-bold" ref={heroTextName}>
           <span>Hello, I'm </span>
           <span className="text-blue-500"> Ryan Ali</span>
         </div>
         <div>
           <h1
-            className="text-xl sm:text-4xl text-gray-700  font-bold lg:w-8/12"
+            className="text-xl sm:text-4xl text-gray-700  font-bold lg:w-full"
             ref={taglineText}
           >
             Unlock the Full Potential of the Web with My Expertise by Your Side
