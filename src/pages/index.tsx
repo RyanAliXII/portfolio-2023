@@ -48,8 +48,8 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <>
-      <main className="overflow-scroll h-screen snap-y snap-proximity lg:snap-mandatory scroll-smooth">
-        <header className="w-full  h-28 fixed top-0 bg-white z-10 ">
+      <main className="overflow-scroll h-screen lg:snap-y lg:snap-mandatory scroll-smooth">
+        <header className="w-full h-20 lg:h-28 fixed top-0 bg-white z-10 ">
           <div className="w-11/12 lg:w-10/12 h-full  mx-auto flex items-center justify-between p-10 gap-5 bg-white">
             <span className="font-bold sm:text-2xl  ">RYAN ALI</span>
 
