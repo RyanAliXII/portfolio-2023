@@ -6,6 +6,8 @@ import librarySystemHomeImage from "../images/library_system/library-system-home
 import librarySearchImage from "../images/library_system/library-system-search.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper";
 import { useInView } from "react-intersection-observer";
 import { gsap, Power2 } from "gsap";
 import tabulationHomeImage from "../images/tabulation/tabulation_home.png";
@@ -307,7 +309,11 @@ const ProjectCard = ({
           className="w-11/12 lg:w-72 h-full p-5 mt-5 lg:mt-0"
           style={{ maxWidth: "246px" }}
         >
-          <Swiper navigation slidesPerView={1}>
+          <Swiper
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            modules={[Pagination]}
+          >
             {images?.map((image, index) => {
               return (
                 <SwiperSlide key={index}>

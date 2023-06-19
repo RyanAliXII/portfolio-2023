@@ -94,7 +94,7 @@ const IndexPage: React.FC<PageProps> = () => {
                   behavior: "smooth",
                 });
               }}
-              className="underline sm:text-lg underline-offset-2 decoration-2 flex items-center"
+              className="underline sm:text-lg underline-offset-4 decoration-2 flex items-center decoration-blue-700"
             >
               Get in touch with me
               <span ref={arrowRef}>
@@ -109,7 +109,7 @@ const IndexPage: React.FC<PageProps> = () => {
           className="mx-auto snap-start w-11/12 lg:w-7/12 mt-9 flex flex-col gap-3 p-2"
           ref={getInTouchRef}
         >
-          <h2 className="text-2xl font-bold underline underline-offset-2 decoration-2 decoration-blue-600">
+          <h2 className="text-2xl font-bold underline underline-offset-4 decoration-2 decoration-blue-600">
             Get In Touch
           </h2>
           <p>
