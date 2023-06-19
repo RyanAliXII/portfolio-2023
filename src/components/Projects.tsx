@@ -12,6 +12,7 @@ import tabulationHomeImage from "../images/tabulation/tabulation_home.png";
 import tabulationDashboardImage from "../images/tabulation/tabulation_dashboard.png";
 import contactTracingImage from "../images/contact-tracing.png";
 import codeboxImage from "../images/codebox.png";
+import { AiFillGithub } from "react-icons/ai";
 const animateToActive = (line: Element, text: Element) => {
   gsap.fromTo(
     line,
@@ -191,13 +192,14 @@ const Projects = () => {
       </div>
 
       <div ref={ref}>
-        <section className="container p-10  mx-auto snap-start scroll-mt-24  mt-5">
+        <section className="container  sm:p-10  mx-auto snap-start scroll-mt-24  mt-5">
           <h1 className="text-center text-5xl font-bold mb-16">Projects</h1>
 
           <div className="flex items-center flex-col gap-4" ref={inRecentRef}>
             <ProjectCard
               title="Caloocan City Cooperative Development and Coordinating Office
                Web Portal"
+              githubLink="https://github.com/RyanAliXII/cooperative-app"
               desc="A multi-tenant cooperative application that efficiently monitors the activities of members as well as the cooperative's savings, shares, and loans. The application includes a dedicated portal for government authorities, enabling them to effectively monitor cooperatives, rank them based on performance, and provide rewards accordingly."
               images={[
                 {
@@ -211,6 +213,7 @@ const Projects = () => {
               ]}
             />
             <ProjectCard
+              githubLink="https://github.com/RyanAliXII/sti-munoz-tabulator"
               title="STI College Munoz-EDSA Academic Week Tabulation"
               desc="A tabulation system for STI College Munoz-EDSA's Academic Week 2023. It allows the committee to update team scores and enables teams to view their scores and rankings. This system enhances efficiency and transparency in managing scores for a fair competition."
               images={[
@@ -226,13 +229,14 @@ const Projects = () => {
             />
           </div>
         </section>
-        <section className="container p-10  mx-auto snap-start scroll-mt-36 ">
+        <section className="container sm:p-10  mx-auto snap-start scroll-mt-36 mt-5">
           <div
             className="flex items-center flex-col gap-4"
             ref={inDevelopmentRef}
           >
             <ProjectCard
               title="STI College Munoz-EDSA Library System"
+              githubLink="https://github.com/RyanAliXII/sti-munoz-library-system-wp"
               desc="The library system for STI College Munoz-EDSA is designed to assist the librarian in efficiently managing various library tasks, including catalog management, circulation, inventory, and generating reports. It also offers convenient features for students, such as online book borrowing, library premise reservations, and penalty viewing, all accessible through their Microsoft accounts."
               images={[
                 {
@@ -251,10 +255,11 @@ const Projects = () => {
             />
           </div>
         </section>
-        <section className="container p-10  mx-auto snap-start ">
+        <section className="container sm:p-10  mx-auto snap-start mt-5">
           <div className="flex items-center flex-col gap-4" ref={oldRef}>
             <ProjectCard
-              title="Contact Tracing Progressive Web Application"
+              title="Codebox"
+              githubLink="https://github.com/RyanAliXII/ContactTracing"
               desc="A contact tracing application that allows school's to track and monitor the spread of infectious diseases, such as COVID-19. Contact tracing involves identifying and notifying individuals who may have come into close contact with an infected person, allowing them to take necessary precautions to prevent further transmission."
               images={[
                 {
@@ -263,10 +268,10 @@ const Projects = () => {
                 },
               ]}
             />
-
             <ProjectCard
               title="Codebox"
-              desc="The library system for STI College Munoz-EDSA is designed to assist the librarian in efficiently managing various library tasks, including catalog management, circulation, inventory, and generating reports. It also offers convenient features for students, such as online book borrowing, library premise reservations, and penalty viewing, all accessible through their Microsoft accounts."
+              githubLink="https://github.com/RyanAliXII/codebox"
+              desc="The project was very simple and inspired by Hastebin. This allows code or text sharing by sending link to other people."
               images={[
                 {
                   alt: "code-box-image",
@@ -285,9 +290,11 @@ const ProjectCard = ({
   title,
   desc,
   images,
+  githubLink,
 }: {
   title: string;
   desc: string;
+  githubLink?: string;
   images?: {
     alt: string;
     value: any;
@@ -296,8 +303,11 @@ const ProjectCard = ({
   return (
     <div className="flex flex-col items-center lg:flex-row lg:justify-around rounded border w-11/12 lg:w-9/12">
       {(images?.length ?? 0) > 1 && (
-        <div className="w-11/12 lg:w-72 h-full p-5 mt-5 lg:mt-0">
-          <Swiper navigation slidesPerView={1} className="w-full">
+        <div
+          className="w-11/12 lg:w-72 h-full p-5 mt-5 lg:mt-0"
+          style={{ maxWidth: "246px" }}
+        >
+          <Swiper navigation slidesPerView={1}>
             {images?.map((image, index) => {
               return (
                 <SwiperSlide key={index}>
@@ -316,19 +326,33 @@ const ProjectCard = ({
         </div>
       )}
       {(images?.length ?? 0) === 1 && (
-        <div className="w-11/12  h-full p-5 mt-5 lg:mt-0">
+        <div
+          className="w-11/12  h-full p-5 mt-5 lg:mt-0"
+          style={{ maxWidth: "246px" }}
+        >
           <div className="w-full flex items-center">
             <img
               src={images?.[0].value}
               loading="lazy"
+              className="object-fill"
               alt={images?.[0].alt}
             ></img>
           </div>
         </div>
       )}
-      <div className="p-5">
+      <div className="flex flex-col gap-4 py-4 px-2">
         <h2 className="text-2xl font-semibold">{title}</h2>
         <p className="text-lg">{desc}</p>
+        <div>
+          <a
+            href={githubLink ?? "#"}
+            className="px-3 py-2 border flex items-center border-b text-black rounded gap-1 w-fit"
+            target="_blank"
+          >
+            <AiFillGithub className="text-lg" />
+            View Code
+          </a>
+        </div>
       </div>
     </div>
   );
