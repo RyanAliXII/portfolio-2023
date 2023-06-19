@@ -305,10 +305,7 @@ const ProjectCard = ({
   return (
     <div className="flex flex-col items-center lg:flex-row lg:justify-around rounded border w-11/12 lg:w-9/12">
       {(images?.length ?? 0) > 1 && (
-        <div
-          className="w-11/12 lg:w-72 h-full p-5 mt-5 lg:mt-0"
-          style={{ maxWidth: "246px" }}
-        >
+        <div className="w-11/12 lg:w-72 h-full p-5 mt-5 lg:mt-0 lg:max-w-[250px]">
           <Swiper
             slidesPerView={1}
             pagination={{ clickable: true }}
@@ -332,10 +329,7 @@ const ProjectCard = ({
         </div>
       )}
       {(images?.length ?? 0) === 1 && (
-        <div
-          className="w-11/12  h-full p-5 mt-5 lg:mt-0"
-          style={{ maxWidth: "246px" }}
-        >
+        <div className="w-11/12  h-full p-5 mt-5 lg:mt-0 lg:max-w-[250px]">
           <div className="w-full flex items-center">
             <img
               src={images?.[0].value}
