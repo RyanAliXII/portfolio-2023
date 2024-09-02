@@ -5,7 +5,11 @@ import { FiDownload } from "react-icons/fi";
 import { gsap, Power1, Power2 } from "gsap";
 import Projects from "../components/Projects";
 import "react-toastify/dist/ReactToastify.css";
+import useThemeToggler from "../hooks/useThemeToggler";
 import { ToastContainer, toast } from "react-toastify";
+import { FaLinkedin, FaMoon } from "react-icons/fa";
+import { MdSunny } from "react-icons/md";
+import About from "../components/About";
 const IndexPage: React.FC<PageProps> = () => {
   const heroTextName = React.useRef<HTMLDivElement>(null);
   const taglineText = React.useRef<HTMLDivElement>(null);
@@ -45,45 +49,57 @@ const IndexPage: React.FC<PageProps> = () => {
       duration: 1,
     });
   }, []);
-
+  const { theme, toggle } = useThemeToggler();
   return (
     <>
-      <main className="overflow-scroll h-screen lg:snap-y lg:snap-mandatory scroll-smooth">
-        <header className="w-full h-20 lg:h-28 fixed top-0 bg-white z-10 ">
-          <div className="w-11/12 lg:w-10/12 h-full  mx-auto flex items-center justify-between p-10 gap-5 bg-white">
-            <span className="font-bold sm:text-2xl  ">RYAN ALI</span>
+      <main className="overflow-scroll h-screen lg:snap-y  scroll-smooth dark:bg-gray-900 ">
+        <header className="w-full h-20 lg:h-28 fixed top-0 bg-white z-10 dark:bg-gray-900 ">
+          <div className="w-11/12 lg:w-10/12 h-full mx-auto flex items-center justify-between p-10 gap-5 bg-white dark:bg-gray-900">
+            <span className="font-bold sm:text-2xl dark:text-gray-100">
+              RYAN
+            </span>
 
-            <div className="ml-16">
+            <div className="flex gap-2 items-center">
               <a
                 href="https://drive.google.com/u/0/uc?id=1RIMe_W7ZpB7ZIbfLVb_O1j4Jx03do_6r&export=download"
                 download={true}
-                className="p-3 text-xs sm:text-base bg-blue-500 text-white rounded-3xl flex gap-1 items-center"
+                className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs md:text-sm px-5 py-2.5 me-2 mb-2  dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               >
-                <FiDownload />
-                Resume
+                <div className="flex gap-2 items-center">
+                  <FiDownload />
+                  CV
+                </div>
               </a>
+              <button
+                type="button"
+                className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none  focus:ring-gray-300 font-medium rounded-lg text-xs md:text-sm  px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"
+                onClick={toggle}
+              >
+                {theme === "light" && <FaMoon />}
+                {theme === "dark" && <MdSunny />}
+              </button>
             </div>
           </div>
         </header>
-        <section className="mx-auto gap-3 p-10 flex flex-col h-screen justify-center lg:gap-5 snap-start w-11/12 lg:w-7/12  ">
+        <section className="mx-auto gap-3 p-10 flex flex-col h-screen justify-center lg:gap-5 w-11/12 lg:w-7/12  ">
           <div className="text-3xl sm:text-5xl font-bold" ref={heroTextName}>
-            <span>Hello, I'm </span>
+            <span className="dark:text-gray-100">Hello, I'm </span>
 
-            <span className="text-blue-500"> Ryan Ali</span>
+            <span className="text-blue-600"> Ryan Ali</span>
           </div>
           <div>
             <h1
-              className="text-xl sm:text-4xl text-gray-700  font-bold lg:w-full"
+              className="text-xl sm:text-4xl text-gray-700  font-bold lg:w-full dark:text-gray-300"
               ref={taglineText}
             >
               Let's Build Something Amazing.
             </h1>
           </div>
           <div ref={descText}>
-            <p className="font-semibold  sm:text-lg text-gray-600">
-              As a software developer, I help organizations as well as
-              individuals in developing easy, elegant web application for their
-              businesses. Simple to use and will fit their business workflow.
+            <p className="font-semibold  sm:text-lg text-gray-600 dark:text-gray-300">
+              As a software developer, I help organizations and individuals
+              create easy-to-use, elegant web applications tailored to their
+              unique needs and workflows.
             </p>
           </div>
           <div ref={ctas}>
@@ -94,7 +110,7 @@ const IndexPage: React.FC<PageProps> = () => {
                   behavior: "smooth",
                 });
               }}
-              className="underline sm:text-lg underline-offset-4 decoration-2 flex items-center decoration-blue-700"
+              className="underline sm:text-lg underline-offset-8 decoration-2 flex items-center decoration-blue-700 dark:decoration-blue-600 dark:text-gray-100"
             >
               Get in touch with me
               <span ref={arrowRef}>
@@ -104,40 +120,54 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
         </section>
 
-        <Projects></Projects>
+        <Projects theme={theme}></Projects>
+        <About />
         <div
-          className="mx-auto snap-start w-11/12 lg:w-7/12 mt-9 flex flex-col gap-3 p-2"
+          className="mx-auto w-11/12 lg:w-7/12 mt-32 flex flex-col gap-3 p-2"
           ref={getInTouchRef}
         >
-          <h2 className="text-2xl font-bold underline underline-offset-4 decoration-2 decoration-blue-600">
+          <h2 className="text-2xl font-bold underline underline-offset-8 dark:text-gray-100 decoration-2 decoration-blue-600">
             Get In Touch
           </h2>
-          <p>
+          <p className="dark:text-gray-100">
             Whether you're interested in collaborating, discussing an
             opportunity, or simply wanting to say hello, I'm eager to connect
-            with you! Feel free to send me an email. I look forward to hearing
-            from you.
+            with you! Feel free to send me an email or a message on LinkedIn. I
+            look forward to hearing from you.
           </p>
-          <div>
+          <div className="flex">
             <button
+              type="button"
               onClick={async () => {
                 const clipboard = navigator.clipboard;
                 const EMAIL = "ryanali.developer@gmail.com";
                 clipboard.writeText(EMAIL);
                 toast.success("Email has been copied.");
               }}
-              className="px-3 py-2 border border-blue-500 text-blue-500 rounded flex items-center gap-1"
               id="getInTouch"
+              className="text-blue-600 hover:text-white border border-blue-700 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
             >
-              <AiOutlineCopy /> Copy Email
+              <div className="flex items-center gap-2">
+                <AiOutlineCopy /> Copy Email
+              </div>
             </button>
+            <a
+              href="https://www.linkedin.com/in/ryan-ali-931a74224/"
+              className="text-gray-900  hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none  focus:ring-gray-300 font-medium rounded-lg text-xs md:text-sm  px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"
+            >
+              <div className="flex items-center gap-2">
+                <FaLinkedin />
+                LinkedIn
+              </div>
+            </a>
           </div>
         </div>
 
         <footer className="w-full h-32 flex items-center justify-center">
-          <span className="font-bold text-gray-600"> &#169; 2023 Ryan Ali</span>
+          <span className="font-bold text-gray-600"> &#169; 2024 Ryan Ali</span>
         </footer>
       </main>
+
       <ToastContainer
         position="top-center"
         autoClose={1000}
@@ -147,7 +177,7 @@ const IndexPage: React.FC<PageProps> = () => {
         hideProgressBar={true}
         draggable
         pauseOnHover
-        theme="light"
+        theme={theme}
       />
     </>
   );

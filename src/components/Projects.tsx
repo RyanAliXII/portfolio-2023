@@ -14,31 +14,22 @@ import tabulationHomeImage from "../images/tabulation/tabulation_home.png";
 import tabulationDashboardImage from "../images/tabulation/tabulation_dashboard.png";
 import contactTracingImage from "../images/contact-tracing.png";
 import codeboxImage from "../images/codebox.png";
-import { AiFillGithub } from "react-icons/ai";
-const animateToActive = (line: Element, text: Element) => {
-  gsap.fromTo(
-    line,
-    { width: "1.25rem", borderColor: "rgb(156 163 175)" },
-    { width: "2.5rem", borderColor: "rgb(55 65 81)" }
-  );
-  gsap.fromTo(text, { color: "rgb(148 163 184)" }, { color: "rgb(51 65 85)" });
-};
+import { MdArrowOutward } from "react-icons/md";
+import liftLandingImage from "../images/lift-gym/landing.png";
+import liftDashboardImage from "../images/lift-gym/dashboard.png";
+import liftLoginPageImage from "../images/lift-gym/login.png";
+import blogLandingImage from "../images/blog-app/landing.png";
+import blogDashboardImage from "../images/blog-app/dashboard.png";
+import blogImage from "../images/blog-app/blog.png";
+import blogLoginImage from "../images/blog-app/login.png";
 
-const animateToInactive = (line: Element, text: Element) => {
-  gsap.fromTo(
-    line,
-    { width: "2.5rem", borderColor: "rgb(55 65 81)" },
-    { width: "1.25rem", borderColor: "rgb(156 163 175)" }
-  );
-  gsap.fromTo(text, { color: "rgb(51 65 85)" }, { color: "rgb(148 163 184)" });
-};
-const Projects = () => {
-  const [ref, inView] = useInView({ threshold: 0.25 });
+const Projects = ({ theme }: { theme: "dark" | "light" }) => {
+  const [ref, inView] = useInView({ threshold: 0.2 });
   const [isMounted, setMounted] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const ACCEPTABLE_WINDOW_WIDTH = 1500;
   const { ref: inRecentRef, inView: isInRecentView } = useInView({
-    threshold: 1,
+    threshold: 0.5,
   });
   const { ref: inDevelopmentRef, inView: isInDevelopmentView } = useInView({
     threshold: 1,
@@ -47,6 +38,32 @@ const Projects = () => {
   const recentNavList = useRef<HTMLAnchorElement>(null);
   const inDevelopmentNavList = useRef<HTMLAnchorElement>(null);
   const oldNavList = useRef<HTMLAnchorElement>(null);
+
+  const animateToActive = (line: Element, text: Element) => {
+    gsap.fromTo(
+      line,
+      { width: "1.25rem", borderColor: "rgb(156 163 175)" },
+      { width: "2.5rem", borderColor: "rgb(55 65 81)" }
+    );
+    // gsap.fromTo(
+    //   text,
+    //   { color: "rgb(148 163 184)" },
+    //   { color: "rgb(51 65 85)" }
+    // );
+  };
+
+  const animateToInactive = (line: Element, text: Element) => {
+    gsap.fromTo(
+      line,
+      { width: "2.5rem", borderColor: "rgb(55 65 81)" },
+      { width: "1.25rem", borderColor: "rgb(156 163 175)" }
+    );
+    // gsap.fromTo(
+    //   text,
+    //   { color: "rgb(51 65 85)" },
+    //   { color: "rgb(148 163 184)" }
+    // );
+  };
   useEffect(() => {
     setMounted(true);
 
@@ -146,7 +163,7 @@ const Projects = () => {
   }, [isInOldView]);
 
   return (
-    <div className="flex  flex-col  lg:flex-row justify-center gap-10">
+    <div className="flex flex-col lg:flex-row justify-center gap-10">
       <div
         ref={navRef}
         style={{
@@ -159,7 +176,7 @@ const Projects = () => {
         <ul className="flex flex-col gap-2">
           <li className="font-bold ">
             <a
-              className="flex items-center gap-3 text-gray-400"
+              className="flex items-center gap-3 text-gray-700 dark:text-gray-100"
               ref={recentNavList}
             >
               <span
@@ -171,11 +188,11 @@ const Projects = () => {
           </li>
           <li className="font-bold">
             <a
-              className="flex items-center gap-3 text-gray-400"
+              className="flex items-center gap-3 text-gray-700 dark:text-gray-100"
               ref={inDevelopmentNavList}
             >
               <span
-                className="w-5 border-t-2 border-gray-400 line"
+                className="w-5 border-t-2 border-gray-700 line"
                 ref={inDevelopmentNavList}
               ></span>
               <span className="text">IN DEVELOPMENT</span>
@@ -183,7 +200,7 @@ const Projects = () => {
           </li>
           <li className="font-bold">
             <a
-              className="flex items-center gap-3 text-gray-400"
+              className="flex items-center gap-3 text-gray-700 dark:text-gray-100"
               ref={oldNavList}
             >
               <span className="w-5 border-t-2 border-gray-400 line"></span>
@@ -195,50 +212,14 @@ const Projects = () => {
 
       <div ref={ref}>
         <section className="container  sm:p-10  mx-auto snap-start scroll-mt-24  mt-5">
-          <h1 className="text-center text-5xl font-bold mb-16">Projects</h1>
+          <h1 className="text-center text-5xl font-bold mb-16 dark:text-gray-100">
+            Projects
+          </h1>
 
           <div className="flex items-center flex-col gap-4" ref={inRecentRef}>
             <ProjectCard
-              title="Caloocan City Cooperative Development and Coordinating Office
-               Web Portal"
-              githubLink="https://github.com/RyanAliXII/cooperative-app"
-              desc="A multi-tenant cooperative application that efficiently monitors the activities of members as well as the cooperative's savings, shares, and loans. The application includes a dedicated portal for government authorities, enabling them to effectively monitor cooperatives, rank them based on performance, and provide rewards accordingly."
-              images={[
-                {
-                  alt: "cooperative-home-image",
-                  value: coopHomeImage,
-                },
-                {
-                  alt: "cooperative-dashboard-image",
-                  value: coopDashboardImage,
-                },
-              ]}
-            />
-            <ProjectCard
-              githubLink="https://github.com/RyanAliXII/sti-munoz-tabulator"
-              title="STI College Munoz-EDSA Academic Week Tabulation"
-              desc="A tabulation system for STI College Munoz-EDSA's Academic Week 2023. It allows the committee to update team scores and enables teams to view their scores and rankings. This system enhances efficiency and transparency in managing scores for a fair competition."
-              images={[
-                {
-                  alt: "tabulation-home-image",
-                  value: tabulationHomeImage,
-                },
-                {
-                  alt: "tabulation-dashboard-image",
-                  value: tabulationDashboardImage,
-                },
-              ]}
-            />
-          </div>
-        </section>
-        <section className="container sm:p-10  mx-auto snap-start scroll-mt-36 mt-5">
-          <div
-            className="flex items-center flex-col gap-4"
-            ref={inDevelopmentRef}
-          >
-            <ProjectCard
               title="STI College Munoz-EDSA Library System"
-              githubLink="https://github.com/RyanAliXII/sti-munoz-library-system-wp"
+              githubLink="https://github.com/RyanAliXII/sti-munoz-library-system"
               desc="The library system for STI College Munoz-EDSA is designed to assist the librarian in efficiently managing various library tasks, including catalog management, circulation, inventory, and generating reports. It also offers convenient features for students, such as online book borrowing, library premise reservations, and penalty viewing, all accessible through their Microsoft accounts."
               images={[
                 {
@@ -254,13 +235,104 @@ const Projects = () => {
                   value: librarySearchImage,
                 },
               ]}
+              stacks={["Go", "React", "TypeScript", "PostgreSQL"]}
+            />
+            <ProjectCard
+              title="Lift Fitness Gym Web Application"
+              githubLink="https://github.com/RyanAliXII/sti-munoz-library-system"
+              desc="The gym management system for Lift Fitness Gym is designed to assist the gym manager in efficiently handling various operational tasks, including subscription management, package creation, revenue tracking, report generation, and coach hiring. reports. It also offers convenient features for students, such as online book borrowing, library premise reservations, and penalty viewing, all accessible through their Microsoft accounts."
+              images={[
+                {
+                  alt: "lift-gym-home-image",
+                  value: liftLandingImage,
+                },
+                {
+                  alt: "lift-gym-dashboard-image",
+                  value: liftDashboardImage,
+                },
+                {
+                  alt: "lift-gym-login-image",
+                  value: liftLoginPageImage,
+                },
+              ]}
+              stacks={["Go", "TypeScript", "Vue.JS", "Rollup", "MySQL"]}
+            />
+            <ProjectCard
+              title="Caloocan City Cooperative Development and Coordinating Office
+               Web Portal"
+              githubLink="https://github.com/RyanAliXII/cooperative-app"
+              desc="A multi-tenant cooperative application that efficiently monitors the activities of members as well as the cooperative's savings, shares, and loans. The application includes a dedicated portal for government authorities, enabling them to effectively monitor cooperatives, rank them based on performance, and provide rewards accordingly."
+              images={[
+                {
+                  alt: "cooperative-home-image",
+                  value: coopHomeImage,
+                },
+                {
+                  alt: "cooperative-dashboard-image",
+                  value: coopDashboardImage,
+                },
+              ]}
+              stacks={["TypeScript", "SvelteKit", "PostgreSQL"]}
+            />
+            <ProjectCard
+              githubLink="https://github.com/RyanAliXII/sti-munoz-tabulator"
+              title="STI College Munoz-EDSA Academic Week Tabulation"
+              desc="A tabulation system for STI College Munoz-EDSA's Academic Week 2023. It allows the committee to update team scores and enables teams to view their scores and rankings. This system enhances efficiency and transparency in managing scores for a fair competition."
+              images={[
+                {
+                  alt: "tabulation-home-image",
+                  value: tabulationHomeImage,
+                },
+                {
+                  alt: "tabulation-dashboard-image",
+                  value: tabulationDashboardImage,
+                },
+              ]}
+              stacks={[
+                "TypeScript",
+                "Express",
+                "Webpack",
+                "Vue.JS",
+                "PostgreSQL",
+              ]}
             />
           </div>
         </section>
-        <section className="container sm:p-10  mx-auto snap-start mt-5">
+        <section className="container sm:p-10  mx-auto  scroll-mt-36 mt-5">
+          <div
+            className="flex items-center flex-col gap-4"
+            ref={inDevelopmentRef}
+          >
+            <ProjectCard
+              title="Blog Application"
+              githubLink="https://github.com/RyanAliXII/blog-application"
+              desc="The blog application is designed to empower users in crafting and managing their online presence with ease. It offers intuitive tools for creating, editing, and publishing posts, moderating comments, and tracking engagement through detailed analytics, all within a sleek, user-friendly interface. Whether you're a seasoned blogger or just starting out, this app streamlines your content creation process and helps you grow your audience with confidence."
+              images={[
+                {
+                  alt: "blog-application-landing-page",
+                  value: blogLandingImage,
+                },
+                {
+                  alt: "blogApplication-dashboard",
+                  value: blogDashboardImage,
+                },
+                {
+                  alt: "blog-image",
+                  value: blogImage,
+                },
+                {
+                  alt: "blog-login-image",
+                  value: blogLoginImage,
+                },
+              ]}
+              stacks={["C#", "ASP.NET", "Vue.JS", "Rollup", "MSSQL"]}
+            />
+          </div>
+        </section>
+        <section className="container sm:p-10  mx-auto mt-5">
           <div className="flex items-center flex-col gap-4" ref={oldRef}>
             <ProjectCard
-              title="Codebox"
+              title="Contact Tracing Progressive Web Application"
               githubLink="https://github.com/RyanAliXII/ContactTracing"
               desc="A contact tracing application that allows school's to track and monitor the spread of infectious diseases, such as COVID-19. Contact tracing involves identifying and notifying individuals who may have come into close contact with an infected person, allowing them to take necessary precautions to prevent further transmission."
               images={[
@@ -269,6 +341,7 @@ const Projects = () => {
                   value: contactTracingImage,
                 },
               ]}
+              stacks={["JavaScript", "Express", "React", "MongoDB"]}
             />
             <ProjectCard
               title="Codebox"
@@ -280,6 +353,7 @@ const Projects = () => {
                   value: codeboxImage,
                 },
               ]}
+              stacks={["PHP", "JavaScript", "MySQL"]}
             />
           </div>
         </section>
@@ -293,6 +367,7 @@ const ProjectCard = ({
   desc,
   images,
   githubLink,
+  stacks = [],
 }: {
   title: string;
   desc: string;
@@ -301,9 +376,14 @@ const ProjectCard = ({
     alt: string;
     value: any;
   }[];
+  stacks?: string[];
 }) => {
   return (
-    <div className="flex flex-col items-center lg:flex-row lg:justify-around rounded border w-11/12 lg:w-9/12">
+    <a
+      href={githubLink}
+      target="_blank"
+      className="flex flex-col items-center lg:flex-row lg:justify-around rounded border  dark:border-gray-700 w-11/12 lg:w-9/12 hover:bg-gray-50 dark:hover:bg-gray-800"
+    >
       {(images?.length ?? 0) > 1 && (
         <div className="w-11/12 lg:w-72 h-full p-5 mt-5 lg:mt-0 lg:max-w-[250px]">
           <Swiper
@@ -329,8 +409,8 @@ const ProjectCard = ({
         </div>
       )}
       {(images?.length ?? 0) === 1 && (
-        <div className="w-11/12  h-full p-5 mt-5 lg:mt-0 lg:max-w-[250px]">
-          <div className="w-full flex items-center">
+        <div className="w-11/12  h-full p-5 mt-5 lg:mt-0 lg:max-w-[250px] rounded">
+          <div className="w-full flex items-center ru">
             <img
               src={images?.[0].value}
               loading="lazy"
@@ -340,21 +420,28 @@ const ProjectCard = ({
           </div>
         </div>
       )}
-      <div className="flex flex-col gap-4 py-4 px-2">
-        <h2 className="text-2xl font-semibold">{title}</h2>
-        <p className="text-lg">{desc}</p>
-        <div>
-          <a
-            href={githubLink ?? "#"}
-            className="px-3 py-2 border flex items-center border-b text-black rounded gap-1 w-fit"
-            target="_blank"
-          >
-            <AiFillGithub className="text-lg" />
-            View Code
-          </a>
-        </div>
+      <div className="flex flex-col gap-4 py-4 px-2 ">
+        <h2 className="text-2xl font-semibold dark:text-gray-100 ">
+          <span>{title}</span>
+          <span className="inline-block">
+            <MdArrowOutward className="pt-1" />
+          </span>
+        </h2>
+        <p className="text-lg dark:text-gray-100">{desc}</p>
+        <ul className="grid grid-cols-3 max-w-[300px]">
+          {stacks?.map((stack) => {
+            return (
+              <li
+                key={stack}
+                className="text-blue-600 bg-blue-500/10  font-medium rounded-full text-xs px-3 py-2 text-center me-2 mb-2 dark:bg-blue-500/10 "
+              >
+                {stack}
+              </li>
+            );
+          })}
+        </ul>
       </div>
-    </div>
+    </a>
   );
 };
 
