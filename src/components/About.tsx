@@ -2,7 +2,7 @@ import React from "react";
 import me from "../images/dev.png";
 const About = () => {
   return (
-    <section className="mx-auto w-11/12 lg:w-7/12 mt-10">
+    <section className="mx-auto w-11/12 lg:w-7/12 mt-10 md:mt-32 p-2">
       <h2 className="text-2xl font-bold underline underline-offset-8 dark:text-gray-100 decoration-2 decoration-blue-600">
         About Me
       </h2>

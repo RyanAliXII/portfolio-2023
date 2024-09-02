@@ -123,7 +123,7 @@ const IndexPage: React.FC<PageProps> = () => {
         <Projects theme={theme}></Projects>
         <About />
         <div
-          className="mx-auto w-11/12 lg:w-7/12 mt-32 flex flex-col gap-3 p-2"
+          className="mx-auto w-11/12 lg:w-7/12 mt-10 md:mt-32 flex flex-col gap-3 p-2"
           ref={getInTouchRef}
         >
           <h2 className="text-2xl font-bold underline underline-offset-8 dark:text-gray-100 decoration-2 decoration-blue-600">
