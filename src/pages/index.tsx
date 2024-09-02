@@ -61,7 +61,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
             <div className="flex gap-2 items-center">
               <a
-                href="https://drive.google.com/u/0/uc?id=1RIMe_W7ZpB7ZIbfLVb_O1j4Jx03do_6r&export=download"
+                href="https://drive.google.com/uc?export=download&id=1YiTJKF6q6Id-QwreT1Xsf7YHUzmlezy2"
                 download={true}
                 className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs md:text-sm px-5 py-2.5 me-2 mb-2  dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               >

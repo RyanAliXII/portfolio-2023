@@ -240,7 +240,7 @@ const Projects = ({ theme }: { theme: "dark" | "light" }) => {
             <ProjectCard
               title="Lift Fitness Gym Web Application"
               githubLink="https://github.com/RyanAliXII/sti-munoz-library-system"
-              desc="The gym management system for Lift Fitness Gym is designed to assist the gym manager in efficiently handling various operational tasks, including subscription management, package creation, revenue tracking, report generation, and coach hiring. reports. It also offers convenient features for students, such as online book borrowing, library premise reservations, and penalty viewing, all accessible through their Microsoft accounts."
+              desc="The gym management system for Lift Fitness Gym is designed to assist the gym manager in efficiently handling various operational tasks, including subscription management, package creation, revenue tracking, report generation, and coach hiring."
               images={[
                 {
                   alt: "lift-gym-home-image",
