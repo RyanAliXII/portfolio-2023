@@ -237,7 +237,7 @@ const Projects = ({ theme }: { theme: "dark" | "light" }) => {
             />
             <ProjectCard
               title="Lift Fitness Gym Web Application"
-              githubLink="https://github.com/RyanAliXII/sti-munoz-library-system"
+              githubLink="https://github.com/RyanAliXII/lift-gym-portal"
               desc="The gym management system for Lift Fitness Gym is designed to assist the gym manager in efficiently handling various operational tasks, including subscription management, package creation, revenue tracking, report generation, and coach hiring."
               images={[
                 {
