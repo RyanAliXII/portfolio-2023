@@ -52,27 +52,20 @@ const IndexPage: React.FC<PageProps> = () => {
   const { theme, toggle } = useThemeToggler();
   return (
     <>
-      <main className="overflow-scroll h-screen lg:snap-y  scroll-smooth dark:bg-gray-900 ">
-        <header className="w-full h-20 lg:h-28 fixed top-0 bg-white z-10 dark:bg-gray-900 ">
-          <div className="w-11/12 lg:w-10/12 h-full mx-auto flex items-center justify-between p-10 gap-5 bg-white dark:bg-gray-900">
-            <span className="font-bold sm:text-2xl dark:text-gray-100">
-              RYAN
-            </span>
+      <main
+        className="overflow-y-scroll scroll-smooth dark:bg-gray-900 "
+        style={{
+          height: "100dvh",
+        }}
+      >
+        <header className="w-full h-20 lg:h-28 fixed top-0 bg-white z-10 dark:bg-gray-900 border-b  dark:border-gray-700 ">
+          <div className="w-full lg:w-10/12 h-full mx-auto flex items-center justify-between p-10 gap-5 bg-white dark:bg-gray-900">
+            <span className="font-bold text-2xl dark:text-gray-100">RYAN</span>
 
             <div className="flex gap-2 items-center">
-              <a
-                href="https://drive.google.com/uc?export=download&id=1YiTJKF6q6Id-QwreT1Xsf7YHUzmlezy2"
-                download={true}
-                className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs md:text-sm px-5 py-2.5 me-2 mb-2  dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-              >
-                <div className="flex gap-2 items-center">
-                  <FiDownload />
-                  CV
-                </div>
-              </a>
               <button
                 type="button"
-                className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none  focus:ring-gray-300 font-medium rounded-lg text-xs md:text-sm  px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"
+                className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none  focus:ring-gray-300 font-medium rounded-lg text-xs md:text-sm  px-3 py-2.5 text-center  dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"
                 onClick={toggle}
               >
                 {theme === "light" && <FaMoon />}
@@ -81,22 +74,30 @@ const IndexPage: React.FC<PageProps> = () => {
             </div>
           </div>
         </header>
-        <section className="mx-auto gap-3 p-10 flex flex-col h-screen justify-center lg:gap-5 w-11/12 lg:w-7/12  ">
-          <div className="text-3xl sm:text-5xl font-bold" ref={heroTextName}>
-            <span className="dark:text-gray-100">Hello, I'm </span>
-
-            <span className="text-blue-600"> Ryan Ali</span>
+        <section
+          className="w-11/12 lg:w-7/12 mx-auto p-2 gap-3 flex flex-col justify-center lg:gap-5 lg:mt-0"
+          style={{
+            height: "100dvh",
+          }}
+        >
+          <div ref={heroTextName} className="mb-2">
+            <span className="dark:text-gray-100 text-3xl md:text-4xl block">
+              Hi there! I'm
+            </span>
+            <h1 className="text-blue-600  text-5xl font-bold md:text-7xl">
+              Ryan Ali
+            </h1>
           </div>
-          <div>
+          <div className="mb-2">
             <h1
-              className="text-xl sm:text-4xl text-gray-700  font-bold lg:w-full dark:text-gray-300"
+              className="text-4xl md:text-5xl text-gray-700 font-bold lg:w-full dark:text-gray-300"
               ref={taglineText}
             >
-              Let's Build Something Amazing.
+              Let's Build Something Great Together.
             </h1>
           </div>
           <div ref={descText}>
-            <p className="font-semibold  sm:text-lg text-gray-600 dark:text-gray-300">
+            <p className="font-semibold text-xl md:text-3xl  dark:text-gray-300">
               As a software developer, I help organizations and individuals
               create easy-to-use, elegant web applications tailored to their
               unique needs and workflows.
@@ -110,7 +111,7 @@ const IndexPage: React.FC<PageProps> = () => {
                   behavior: "smooth",
                 });
               }}
-              className="underline sm:text-lg underline-offset-8 decoration-2 flex items-center decoration-blue-700 dark:decoration-blue-600 dark:text-gray-100"
+              className="underline text-xl  md:text-2xl underline-offset-8 decoration-2 flex items-center decoration-blue-700 dark:decoration-blue-600 dark:text-gray-100"
             >
               Get in touch with me
               <span ref={arrowRef}>
@@ -122,14 +123,14 @@ const IndexPage: React.FC<PageProps> = () => {
 
         <Projects theme={theme}></Projects>
         <About />
-        <div
-          className="mx-auto w-11/12 lg:w-7/12 mt-10 md:mt-32 flex flex-col gap-3 p-2"
+        <section
+          className="mx-auto w-11/12 lg:w-7/12 mt-10 md:mt-32 p-4"
           ref={getInTouchRef}
         >
-          <h2 className="text-2xl font-bold underline underline-offset-8 dark:text-gray-100 decoration-2 decoration-blue-600">
+          <h2 className="text-3xl md:text-4xl mb-5 font-bold underline underline-offset-8 dark:text-gray-100 decoration-2 decoration-blue-600">
             Get In Touch
           </h2>
-          <p className="dark:text-gray-100">
+          <p className="text-gray-700 dark:text-gray-300  mb-5 text-justify">
             Whether you're interested in collaborating, discussing an
             opportunity, or simply wanting to say hello, I'm eager to connect
             with you! Feel free to send me an email or a message on LinkedIn. I
@@ -145,7 +146,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 toast.success("Email has been copied.");
               }}
               id="getInTouch"
-              className="text-blue-600 hover:text-white border border-blue-700 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+              className="text-blue-600 hover:text-white border border-blue-700 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs md:text-sm px-3 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
             >
               <div className="flex items-center gap-2">
                 <AiOutlineCopy /> Copy Email
@@ -162,10 +163,26 @@ const IndexPage: React.FC<PageProps> = () => {
               </div>
             </a>
           </div>
-        </div>
+
+          <div className="flex">
+            <a
+              href="https://drive.google.com/uc?export=download&id=1YiTJKF6q6Id-QwreT1Xsf7YHUzmlezy2"
+              download={true}
+              className="text-gray-900  hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none  focus:ring-gray-300 font-medium rounded-lg text-xs md:text-sm  px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"
+            >
+              <div className="flex gap-2 items-center">
+                <FiDownload />
+                Curriculum Vitae
+              </div>
+            </a>
+          </div>
+        </section>
 
         <footer className="w-full h-32 flex items-center justify-center">
-          <span className="font-bold text-gray-600"> &#169; 2024 Ryan Ali</span>
+          <span className="font-bold text-gray-600 dark:text-gray-200">
+            {" "}
+            &#169; 2024 Ryan Ali
+          </span>
         </footer>
       </main>
 

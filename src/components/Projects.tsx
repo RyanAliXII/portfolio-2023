@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import coopHomeImage from "../images/coop_app/coop_home.png";
 import coopDashboardImage from "../images/coop_app/coop_dashboard.png";
-import librarySystemDashboardImage from "../images/library_system/library-system-dashboard.png";
+import librarySystemDashboardImage from "../images/library_system/dashboard.png";
 import librarySystemHomeImage from "../images/library_system/library-system-home.png";
 import librarySearchImage from "../images/library_system/library-system-search.png";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -29,7 +29,7 @@ const Projects = ({ theme }: { theme: "dark" | "light" }) => {
   const navRef = useRef<HTMLDivElement>(null);
   const ACCEPTABLE_WINDOW_WIDTH = 1500;
   const { ref: inRecentRef, inView: isInRecentView } = useInView({
-    threshold: 0.5,
+    threshold: 0.25,
   });
   const { ref: inDevelopmentRef, inView: isInDevelopmentView } = useInView({
     threshold: 1,
@@ -163,7 +163,7 @@ const Projects = ({ theme }: { theme: "dark" | "light" }) => {
   }, [isInOldView]);
 
   return (
-    <div className="flex flex-col lg:flex-row justify-center gap-10">
+    <section className="w-11/12 lg:w-7/12 mx-auto mt-10 md:mt-32 p-2 ">
       <div
         ref={navRef}
         style={{
@@ -209,18 +209,16 @@ const Projects = ({ theme }: { theme: "dark" | "light" }) => {
           </li>
         </ul>
       </div>
-
+      <h2 className="text-3xl md:text-4xl mb-7 font-bold underline underline-offset-8 self-start dark:text-gray-100 decoration-2 decoration-blue-600">
+        Projects
+      </h2>
       <div ref={ref}>
-        <section className="container  sm:p-10  mx-auto snap-start scroll-mt-24  mt-5">
-          <h1 className="text-center text-5xl font-bold mb-16 dark:text-gray-100">
-            Projects
-          </h1>
-
+        <section>
           <div className="flex items-center flex-col gap-4" ref={inRecentRef}>
             <ProjectCard
               title="STI College Munoz-EDSA Library System"
               githubLink="https://github.com/RyanAliXII/sti-munoz-library-system"
-              desc="The library system for STI College Munoz-EDSA is designed to assist the librarian in efficiently managing various library tasks, including catalog management, circulation, inventory, and generating reports. It also offers convenient features for students, such as online book borrowing, library premise reservations, and penalty viewing, all accessible through their Microsoft accounts."
+              desc="The library system for STI College Munoz-EDSA is designed to assist the librarian in efficiently managing various library tasks, including catalog management, circulation, inventory, and generating reports. It also offers convenient features for students, such as online book borrowing, library premise reservations, and penalty viewing, all accessible through the system."
               images={[
                 {
                   alt: "library-system-home-image",
@@ -298,7 +296,8 @@ const Projects = ({ theme }: { theme: "dark" | "light" }) => {
             />
           </div>
         </section>
-        <section className="container sm:p-10  mx-auto  scroll-mt-36 mt-5">
+
+        <section className="mt-20">
           <div
             className="flex items-center flex-col gap-4"
             ref={inDevelopmentRef}
@@ -329,7 +328,7 @@ const Projects = ({ theme }: { theme: "dark" | "light" }) => {
             />
           </div>
         </section>
-        <section className="container sm:p-10  mx-auto mt-5">
+        <section className="mt-20">
           <div className="flex items-center flex-col gap-4" ref={oldRef}>
             <ProjectCard
               title="Contact Tracing Progressive Web Application"
@@ -358,7 +357,7 @@ const Projects = ({ theme }: { theme: "dark" | "light" }) => {
           </div>
         </section>
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -382,10 +381,10 @@ const ProjectCard = ({
     <a
       href={githubLink}
       target="_blank"
-      className="flex flex-col items-center lg:flex-row lg:justify-around rounded border  dark:border-gray-700 w-11/12 lg:w-9/12 hover:bg-gray-50 dark:hover:bg-gray-800"
+      className="flex flex-col items-center lg:flex-row lg:justify-around rounded border  dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
     >
       {(images?.length ?? 0) > 1 && (
-        <div className="w-11/12 lg:w-72 h-full p-5 mt-5 lg:mt-0 lg:max-w-[250px]">
+        <div className="h-full p-5 mt-5 lg:mt-0 max-w-[300px]">
           <Swiper
             slidesPerView={1}
             pagination={{ clickable: true }}
@@ -409,7 +408,7 @@ const ProjectCard = ({
         </div>
       )}
       {(images?.length ?? 0) === 1 && (
-        <div className="w-11/12  h-full p-5 mt-5 lg:mt-0 lg:max-w-[250px] rounded">
+        <div className="w-11/12  h-full p-5 mt-5 lg:mt-0 max-w-[300px] rounded">
           <div className="w-full flex items-center ru">
             <img
               src={images?.[0].value}
@@ -421,13 +420,13 @@ const ProjectCard = ({
         </div>
       )}
       <div className="flex flex-col gap-4 py-4 px-2 ">
-        <h2 className="text-2xl font-semibold dark:text-gray-100 ">
+        <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-100 ">
           <span>{title}</span>
           <span className="inline-block">
             <MdArrowOutward className="pt-1" />
           </span>
         </h2>
-        <p className="text-lg dark:text-gray-100">{desc}</p>
+        <p className="text-lg dark:text-gray-300">{desc}</p>
         <ul className="grid grid-cols-3 max-w-[300px]">
           {stacks?.map((stack) => {
             return (

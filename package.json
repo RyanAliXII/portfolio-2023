@@ -17,6 +17,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@uppy/compressor": "^2.1.0",
     "autoprefixer": "^10.4.14",
     "gatsby": "^5.10.0",
     "gatsby-plugin-postcss": "^6.10.0",
