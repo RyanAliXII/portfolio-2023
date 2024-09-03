@@ -10,6 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { FaLinkedin, FaMoon } from "react-icons/fa";
 import { MdSunny } from "react-icons/md";
 import About from "../components/About";
+import { Helmet } from "react-helmet";
 const IndexPage: React.FC<PageProps> = () => {
   const heroTextName = React.useRef<HTMLDivElement>(null);
   const taglineText = React.useRef<HTMLDivElement>(null);
@@ -52,6 +53,11 @@ const IndexPage: React.FC<PageProps> = () => {
   const { theme, toggle } = useThemeToggler();
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Ryan Ali | Portfolio</title>
+        <link rel="canonical" href="https://ryan-ali.onrender.com" />
+      </Helmet>
       <main
         className="overflow-y-scroll scroll-smooth dark:bg-gray-900 "
         style={{
