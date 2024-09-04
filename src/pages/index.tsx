@@ -195,6 +195,7 @@ const IndexPage: React.FC<PageProps> = () => {
         draggable
         pauseOnHover
         theme={theme}
+        toastClassName="dark:bg-gray-800"
       />
     </>
   );
