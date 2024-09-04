@@ -258,7 +258,7 @@ const Projects = ({ theme }: { theme: "dark" | "light" }) => {
             <ProjectCard
               title="Caloocan City Cooperative Development and Coordinating Office
                Web Portal"
-              githubLink="https://github.com/RyanAliXII/cooperative-app"
+              githubLink="https://github.com/RyanAliXII/cooperative-application"
               desc="A multi-tenant cooperative application that efficiently monitors the activities of members as well as the cooperative's savings, shares, and loans. The application includes a dedicated portal for government authorities, enabling them to effectively monitor cooperatives, rank them based on performance, and provide rewards accordingly."
               images={[
                 {
