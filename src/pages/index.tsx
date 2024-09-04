@@ -80,7 +80,7 @@ const IndexPage: React.FC<PageProps> = () => {
           id="hero"
         >
           <div ref={heroTextName} className="mb-2">
-            <span className="dark:text-gray-100 text-3xl md:text-4xl block">
+            <span className="dark:text-gray-100 text-2xl md:text-3xl ml-1">
               Hi there! I'm
             </span>
             <h1 className="text-blue-600  text-5xl font-bold md:text-7xl">
@@ -89,14 +89,14 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
           <div className="mb-2">
             <h1
-              className="text-4xl md:text-5xl text-gray-700 font-bold lg:w-full dark:text-gray-300"
+              className="text-4xl md:text-5xl text-gray-700 font-bold lg:w-full dark:text-gray-300 ml-0.5"
               ref={taglineText}
             >
               Let's Build Something Great Together.
             </h1>
           </div>
           <div ref={descText}>
-            <p className="font-semibold text-xl md:text-3xl  dark:text-gray-300">
+            <p className="font-semibold text-xl md:text-3xl  dark:text-gray-300 ml-0.5">
               I help organizations and individuals create easy-to-use, elegant
               web applications tailored to their unique needs and workflows.
             </p>
@@ -109,7 +109,7 @@ const IndexPage: React.FC<PageProps> = () => {
                   behavior: "smooth",
                 });
               }}
-              className="underline text-xl  md:text-2xl underline-offset-8 decoration-2 flex items-center decoration-blue-700 dark:decoration-blue-600 dark:text-gray-100"
+              className="underline text-xl  md:text-2xl underline-offset-8 decoration-2 flex items-center decoration-blue-700 dark:decoration-blue-600 dark:text-gray-100 ml-0.5"
             >
               Get in touch with me
               <span ref={arrowRef}>
