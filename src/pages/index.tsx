@@ -107,6 +107,7 @@ const IndexPage: React.FC<PageProps> = () => {
               onClick={() => {
                 getInTouchRef.current?.scrollIntoView({
                   behavior: "smooth",
+                  block: "center",
                 });
               }}
               className="underline text-xl  md:text-2xl underline-offset-8 decoration-2 flex items-center decoration-blue-700 dark:decoration-blue-600 dark:text-gray-100 ml-0.5"
