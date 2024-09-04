@@ -58,13 +58,8 @@ const IndexPage: React.FC<PageProps> = () => {
         <title>Ryan Ali | Portfolio</title>
         <link rel="canonical" href="https://ryan-ali.onrender.com" />
       </Helmet>
-      <main
-        className="overflow-y-scroll scroll-smooth dark:bg-gray-900 "
-        style={{
-          height: "100dvh",
-        }}
-      >
-        <header className="w-full h-20 lg:h-28 fixed top-0 bg-white z-10 dark:bg-gray-900 border-b  dark:border-gray-700 ">
+      <main className="dark:bg-gray-900">
+        <header className="w-full h-20 lg:h-28 fixed top-0 bg-white z-10 dark:bg-gray-900 border-b dark:border-gray-700 ">
           <div className="w-full lg:w-10/12 h-full mx-auto flex items-center justify-between p-10 gap-5 bg-white dark:bg-gray-900">
             <span className="font-bold text-2xl dark:text-gray-100">RYAN</span>
 
@@ -82,9 +77,7 @@ const IndexPage: React.FC<PageProps> = () => {
         </header>
         <section
           className="w-11/12 lg:w-7/12 mx-auto p-2 gap-3 flex flex-col justify-center lg:gap-5 lg:mt-0"
-          style={{
-            height: "100dvh",
-          }}
+          id="hero"
         >
           <div ref={heroTextName} className="mb-2">
             <span className="dark:text-gray-100 text-3xl md:text-4xl block">
@@ -104,9 +97,8 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
           <div ref={descText}>
             <p className="font-semibold text-xl md:text-3xl  dark:text-gray-300">
-              As a software developer, I help organizations and individuals
-              create easy-to-use, elegant web applications tailored to their
-              unique needs and workflows.
+              I help organizations and individuals create easy-to-use, elegant
+              web applications tailored to their unique needs and workflows.
             </p>
           </div>
           <div ref={ctas}>
