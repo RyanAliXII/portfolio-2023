@@ -60,7 +60,7 @@ const IndexPage: React.FC<PageProps> = () => {
       </Helmet>
       <main className="dark:bg-gray-900">
         <header className="w-full h-20 lg:h-28 fixed top-0 bg-white z-10 dark:bg-gray-900 border-b dark:border-gray-700 ">
-          <div className="w-full lg:w-10/12 h-full mx-auto flex items-center justify-between p-10 gap-5 bg-white dark:bg-gray-900">
+          <div className="w-11/12 lg:w-7/12 mx-auto px-2.5 gap-3 h-full flex items-center justify-between   bg-white dark:bg-gray-900">
             <span className="font-bold text-2xl dark:text-gray-100">RYAN</span>
 
             <div className="flex gap-2 items-center">
@@ -76,7 +76,7 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
         </header>
         <section
-          className="w-11/12 lg:w-7/12 mx-auto p-2 gap-3 flex flex-col justify-center lg:gap-5 lg:mt-0"
+          className="w-11/12 lg:w-7/12 mt-10 mx-auto p-2 gap-3 flex flex-col justify-center lg:gap-5 lg:mt-0"
           id="hero"
         >
           <div ref={heroTextName} className="mb-2">
